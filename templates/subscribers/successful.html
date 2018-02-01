@@ -1,0 +1,13 @@
+{% extends "subscribers/base.html" %}
+
+{% block title %}Abonements{% endblock %}
+
+{% block content %}
+{% if action == 'subscribe' %}
+<p>Du erhälst in Kurze eine Nachricht, bestätige bitte die Anmeldung, in dem du auf den Link klickst.</p>
+{% elif action == 'confirm' %}
+<p>Du haste dein Abo erfolgreich bestätigt!</p>
+{% elif action == 'unsubscribe' %}
+<p>Du hast leider dein Abo abbestellt.</p>
+{% endif %}
+{% endblock %}

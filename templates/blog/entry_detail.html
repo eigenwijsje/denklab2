@@ -1,0 +1,48 @@
+{% extends "blog/base.html" %}
+
+{% load markdownx %}
+
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <main class="main">
+        <div class="main__inner">
+            <article class="post post--single">
+                <div class="post__inner">
+                    {% if entry.title %}
+                    <h1 class="post-title">
+                        <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+                    </h1>
+                    {% endif %}
+
+                    <div class="post-extras__date">
+                        <i class="fa fa-calendar-o"></i>
+                        <time datetime="{{ entry.published|date:'b' }}">{{ entry.published|date }}</time>
+                        <i class="fa fa-user"></i>Ernesto Rico Schmidt
+                    </div>
+
+                    <div class="content">
+                        {{ entry.content|markdown }}
+
+
+                        {% if entry.has_prev_post %}
+                        <p class="next-post"><i class="fa fa-arrow-circle-right"></i>
+                            <a href="{{ entry.prev_entry.get_absolute_url }}">Lies “{{ entry.prev_entry.title }}” als Nächstes</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+
+            <footer class="post-footer">
+                <div class="post-footer__inner">
+                    <div class="author-bio">
+                        <h3>Ernesto Rico Schmidt</h3>
+                        muggle – restful & reactive.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+</div>
+{% endblock %}

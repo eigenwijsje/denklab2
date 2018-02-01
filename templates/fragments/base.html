@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %} - Fragmente</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="alternate" href="/fragmente/feed/" title="Fragmente RSS Feed" type="application/rss+xml">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500italic,500">
+
+    <link rel="stylesheet" href="{% static 'css/fragments.css' %}">
+</head>
+
+<body>
+<div class="container">
+    <header class="site-header">
+        <div class="site-info">
+            <h1 class="site-title"><a href="/fragmente/">Fragmente</a></h1>
+            <div class="site-description">
+                <p>Der Versuch die Wiederentdeckung meiner Stadt und meiner Heimat zu dokumentieren.</p>
+            </div>
+        </div>
+        <a href="#" class="menu-toggle"><i class="fa fa-bars"></i></a>
+        <nav class="site-navigation">
+            <ul>
+                <li><a href="/uber-fragmente/">Über Fragmente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+
+        <footer class="site-footer">
+            <p>Copyright © 2018 Ernesto Rico Schmidt. Powered by <a href="https://github.com/nnrcschmdt/denklab2">denklab</a>
+            </p>
+        </footer>
+    </main>
+</div>
+</body>
+</html>

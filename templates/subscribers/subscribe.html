@@ -1,0 +1,14 @@
+{% extends "subscribers/base.html" %}
+
+{% block title %}Abonements{% endblock %}
+
+{% block content %}
+
+<form class="pure-form" method="post">
+    <legend>Abonements</legend>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="pure-button pure-button-primary" type="submit">Subscribe</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %} - denklab.org/blog</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="alternate" href="/blog/feed/" title="Blog RSS Feed" type="application/rss+xml">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400italic,300italic,300">
+
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+
+<body>
+<div class="wrapper">
+    <a href="#" class="menu-toggle"><i class="fa fa-bars"></i></a>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <h1 class="site-title"><a href="/blog">denklab.org/blog</a></h1>
+            <div class="site-description">Python, Linux und Freie Software</div>
+        </div>
+    </header>
+
+    <header class="site-header--mini">
+        <h1 class="site-title"><a href="/">denklab.org</a></h1>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="site-footer">
+        <h2 class="site-title site-title--footer"><a href="/blog">denklab.org/blog</a></h2>
+        <div class="footer">Copyright © 2018 Ernesto Rico Schmidt. Powered by <a href="https://github.com/nnrcschmdt/denklab2">denkLab</a></div>
+    </footer>
+</div>
+</body>
+</html>
