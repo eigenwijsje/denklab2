@@ -11,7 +11,7 @@ class LatestArticlesFeed(Feed):
 
     @staticmethod
     def items():
-        return Article.objects.order_by('-published')[:5]
+        return Article.objects.filter(published__isnull=False).order_by('-published')[:5]
 
     def item_title(self, item):
         return item.title
