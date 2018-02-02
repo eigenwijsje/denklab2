@@ -1,0 +1,22 @@
+{% extends "fragments/base.html" %}
+
+{% load markdownx %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}}
+
+{% block content %}
+<article class="post post--single">
+    <h1 class="post-title">{{ flatpage.title }}</h1>
+
+    <div class="content">
+        {{ flatpage.content|markdown }}
+    </div>
+</article>
+
+<footer class="post-footer">
+    <div class="author-bio">
+        <h3>Ernesto Rico Schmidt</h3>
+        <p>In Cochabamba geboren und aufgewachsen. Zurück nach dreiundzwanzig Jahren in Graz.</p>
+    </div>
+</footer>
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.flatpages import views
 from django.urls import path, include
 
 urlpatterns = [
@@ -7,4 +8,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('fragmente/', include('fragments.urls')),
     path('subscribers/', include('subscribers.urls')),
+    path('<path:url>', views.flatpage),
 ]
