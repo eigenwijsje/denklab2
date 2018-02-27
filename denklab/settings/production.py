@@ -18,6 +18,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['denklab.org']
 
+INSTALLED_APPS += 'anymail'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -27,7 +29,7 @@ DATABASES = {
     }
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 
 ADMINS = ['ernesto@rico-schmidt.name']
 
@@ -54,3 +56,8 @@ SESSION_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
 
 CSRF_COOKIE_SECURE = True
+
+ANYMAIL = {
+    'MAILGUN_API_KEY': get_env_variable('ANYMAIL_MAILGUN_API_KEY'),
+    'MAILGUN_SENDER_DOMAIN': get_env_variable('ANYMAIL_MAILGUN_SENDER_DOMAIN')
+}
