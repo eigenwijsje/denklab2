@@ -5,44 +5,24 @@
 {% block title %}{{ entry.title }}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <main class="main">
-        <div class="main__inner">
-            <article class="post post--single">
-                <div class="post__inner">
-                    {% if entry.title %}
-                    <h1 class="post-title">
-                        <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
-                    </h1>
-                    {% endif %}
+<section class="entry">
+    <header class="entry-header">
+        <h1 class="entry-title">{{ entry.title }}</h1>
 
-                    <div class="post-extras__date">
-                        <i class="fa fa-calendar-o"></i>
-                        <time datetime="{{ entry.published|date:'b' }}">{{ entry.published|date }}</time>
-                        <i class="fa fa-user"></i>Ernesto Rico Schmidt
-                    </div>
+        <p class="entry-published-date">
+            <time datetime="{{ entry.published|date:'b' }}">{{ entry.published|date }}</time>
+        </p>
+    </header>
 
-                    <div class="content">
-                        {{ entry.content|markdown }}
+    <div class="entry-content">
+        <p>{{ entry.content|markdown }}</p>
+    </div>
+</section>
 
-
-                        {% if entry.has_prev_post %}
-                        <p class="next-post"><i class="fa fa-arrow-circle-right"></i>
-                            <a href="{{ entry.prev_entry.get_absolute_url }}">Lies “{{ entry.prev_entry.title }}” als Nächstes</a></p>
-                        {% endif %}
-                    </div>
-                </div>
-            </article>
-
-            <footer class="post-footer">
-                <div class="post-footer__inner">
-                    <div class="author-bio">
-                        <h3>Ernesto Rico Schmidt</h3>
-                        muggle – restful & reactive.
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </main>
-</div>
+<footer class="post-footer">
+    <div class="author-bio">
+        <h3>Ernesto Rico Schmidt</h3>
+        <p>muggle – restful &amp; reactive.</p>
+    </div>
+</footer>
 {% endblock %}

@@ -2,20 +2,22 @@
 
 {% load markdownx %}
 
-{% block title %}{{ article.title }} - Fragmente{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
-<article class="post post--single">
-    <h1 class="post-title">{{ article.title }}</h1>
+<section class="article">
+    <header class="article-header">
+        <h1 class="article-title">{{ article.title }}</h1>
 
-    <div class="post-meta"> von Ernesto Rico Schmidt am
-        <time datetime="{{ article.published|date:'c' }}">{{ article.published|date }}</time>
-    </div>
+        <p class="article-published-date">
+            <time datetime="{{ article.published|date:'b' }}">{{ article.published|date }}</time>
+        </p>
+    </header>
 
-    <div class="content">
-        {{ article.content|markdown }}
+    <div class="article-content">
+        <p>{{ article.content|markdown }}</p>
     </div>
-</article>
+</section>
 
 <footer class="post-footer">
     <div class="author-bio">

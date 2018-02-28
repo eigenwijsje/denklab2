@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}{% endblock %} - denklab.org/blog</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>{% block title %}{% endblock %}</title>
 
     <link rel="alternate" href="/blog/feed/" title="Blog RSS Feed" type="application/rss+xml">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400italic,300italic,300">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          crossorigin="anonymous">
 
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed" rel="stylesheet">
+
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <!--[if gt IE 8]><!-->
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <!--<![endif]-->
 </head>
 
 <body>
-<div class="wrapper">
-    <a href="#" class="menu-toggle"><i class="fa fa-bars"></i></a>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h2 class="brand-title">Blog</h2>
+            <h3 class="brand-tagline">Python, Linux und Freie Software</h3>
 
-    <header class="site-header">
-        <div class="site-header__inner">
-            <h1 class="site-title"><a href="/blog/">denklab.org/blog/</a></h1>
-            <div class="site-description">Python, Linux und Freie Software</div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="/blog/">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="/blog/feed/">RSS Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="/uber-denklab/">Über denklab</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </header>
+    </div>
 
-    {% block content %}
-    {% endblock %}
-
-    <footer class="site-footer">
-        <h2 class="site-title site-title--footer"><a href="/blog/">denklab.org/blog/</a></h2>
-        <div class="footer">Copyright © 2018 Ernesto Rico Schmidt. Powered by <a href="https://github.com/nnrcschmdt/denklab2">denkLab</a></div>
-    </footer>
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div class="entries">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 </div>
 </body>
+
 </html>

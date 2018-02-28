@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}{% endblock %}</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="alternate" href="/fragmente/feed/" title="Fragmente RSS Feed" type="application/rss+xml">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500italic,500">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <!--[if gt IE 8]><!-->
     <link rel="stylesheet" href="{% static 'css/fragments.css' %}">
+    <!--<![endif]-->
 </head>
 
 <body>
-<div class="container">
-    <header class="site-header">
-        <div class="site-info">
-            <h1 class="site-title"><a href="/fragmente/">Fragmente</a></h1>
-            <div class="site-description">
-                <p>Der Versuch die Wiederentdeckung meiner Stadt und meiner Heimat zu dokumentieren.</p>
-            </div>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h2 class="brand-title">Fragmente</h2>
+            <h3 class="brand-tagline">Der Versuch die Wiederentdeckung meiner Stadt und meiner Heimat zu dokumentieren</h3>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="/fragmente/">Fragmente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="/fragmente/feed/">RSS Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="/uber-fragmente/">Über Fragmente</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <a href="#" class="menu-toggle"><i class="fa fa-bars"></i></a>
-        <nav class="site-navigation">
-            <ul>
-                <li><a href="/uber-fragmente/">Über Fragmente</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
 
-    <main class="main">
-        {% block content %}
-        {% endblock %}
-
-        <footer class="site-footer">
-            <p>Copyright © 2018 Ernesto Rico Schmidt. Powered by <a href="https://github.com/nnrcschmdt/denklab2">denklab</a>
-            </p>
-        </footer>
-    </main>
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div class="articles">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 </div>
 </body>
+
 </html>

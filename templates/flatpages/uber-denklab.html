@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% load markdownx %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}}
+
+{% block content %}
+<section class="entry">
+    <header class="entry-header">
+        <h1 class="entry-title">{{ flatpage.title }}</h1>
+    </header>
+
+    <div class="entry-content">
+        <p>{{ flatpage.content|markdown }}</p>
+    </div>
+</section>
+
+<footer class="entry-footer">
+    <h3>Ernesto Rico Schmidt</h3>
+    <p>muggle – restful &amp; reactive.</p>
+</footer>
+{% endblock %}
