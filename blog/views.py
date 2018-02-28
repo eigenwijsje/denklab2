@@ -5,7 +5,7 @@ from blog.models import Entry
 
 class EntryView(object):
     model = Entry
-    queryset = Entry.objects.all()  # filter(published__isnull=False)
+    queryset = Entry.objects.filter(published__isnull=False)
 
 
 class EntryListView(EntryView, ListView):
