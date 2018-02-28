@@ -18,7 +18,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['denklab.org']
 
-INSTALLED_APPS += 'anymail'
+INSTALLED_APPS += ['anymail']
 
 DATABASES = {
     'default': {
